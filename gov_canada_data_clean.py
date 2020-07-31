@@ -11,7 +11,7 @@ import pprint
 import re
 import logging
 
-def clean_data():
+def clean_data(org_id):
     # Comments regarding this function can be found in the jupyter notebook
     with open('gov_canada_datasets_raw.json', 'r') as f:
         datasets = json.load(f)
@@ -21,8 +21,8 @@ def clean_data():
 
 
     delete_keys = [u'creator_user_id', u'groups', u'id', u'revision_id',
-                u'isopen', u'license_title', u'license_url', u'metadata_contact', u'metadata_created', 
-                u'metadata_modified', u'num_resources', u'num_tags', u'organization']
+                u'isopen', u'license_title', u'license_url', u'metadata_contact', u'metadata_created',
+                u'metadata_modified',u'owner_org', u'num_resources', u'num_tags', u'organization']
 
     resource_delete_keys = [u'datastore_active', u'id', u'package_id', u'position', u'url_type']
 
@@ -30,7 +30,7 @@ def clean_data():
 
     for dataset in datasets:
         dataset = dataset[u'result']
-        
+
         for key in delete_keys:
             dataset.pop(key, None)
 
@@ -38,14 +38,13 @@ def clean_data():
             for key in resource_delete_keys:
                 resource.pop(key, None)
 
-        dataset[u'owner_org'] = 'csa'
-        
-        dataset[u'type'] = 'dataset'
-        dataset[u'diids_no']='no'
+        dataset[u'owner_org'] = org_id
+        dataset[u'project'] = u'earth_observation'
+        dataset[u'type'] = u'dataset'
+        #dataset[u'diids_no']=u'no'
         cleaned_datasets.append(dataset)
 
 
 
     with open('gov_canada_datasets_clean.json', 'w') as f:
         json.dump(cleaned_datasets, f)
-

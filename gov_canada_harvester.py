@@ -27,22 +27,22 @@ def get_data():
 
     i=0
     for dataset_id in dataset_ids:
+        if True :
+            i+=1
+            try :
 
-        i+=1
-        try :
-          
-            response = requests.get('https://open.canada.ca/data/en/api/3/action/package_show?id=' + dataset_id)
-            response.encoding = "utf-8"
-            gov_canada_api_dataset = json.loads(response.text)
-            assert (gov_canada_api_dataset['success'] == True)
-            datasets.append(gov_canada_api_dataset)
-            print i,'/',l
-            time.sleep(1)
-            
-        except :
-            print('An error occured and this dataset will be skipped!')
-            l-=1
-            time.sleep(1)
+                response = requests.get('https://open.canada.ca/data/en/api/3/action/package_show?id=' + dataset_id)
+                response.encoding = "utf-8"
+                gov_canada_api_dataset = json.loads(response.text)
+                assert (gov_canada_api_dataset['success'] == True)
+                datasets.append(gov_canada_api_dataset)
+                print i,'/',l
+                time.sleep(1)
+
+            except :
+                print('An error occured and this dataset will be skipped!')
+                l-=1
+                time.sleep(1)
 
     # Save data that was requested into .json
     # Could be a problem if there is too much data to hold in memory, but in this case it's fine
