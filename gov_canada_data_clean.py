@@ -39,8 +39,20 @@ def clean_data(org_id):
                 resource.pop(key, None)
 
         dataset[u'owner_org'] = org_id
-        dataset[u'project'] = u'earth_observation'
+        dataset[u'project'] = u'unlisted'
         dataset[u'type'] = u'dataset'
+
+        if ('audit' in dataset['keywords']) or ('evaluation' in dataset['keywords']) :
+            dataset[u'science_data']='false'
+        else :
+            dataset[u'science_data']='true'
+        url=dataset[u'url']
+        url_start=url[0:4]
+        if url_start="http" and url[5]!='s' :
+            url=url_start+"s"+url[5:]
+        dataset[u'url']=url
+
+
         #dataset[u'diids_no']=u'no'
         cleaned_datasets.append(dataset)
 
