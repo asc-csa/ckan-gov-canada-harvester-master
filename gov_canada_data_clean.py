@@ -46,6 +46,8 @@ def clean_data(org_id):
             dataset[u'science_data']='false'
         else :
             dataset[u'science_data']='true'
+
+
         url=dataset[u'url']
         url_start=url[0:4]
         if url_start="http" and url[5]!='s' :
