@@ -42,17 +42,11 @@ def clean_data(org_id):
         dataset[u'project'] = u'unlisted'
         dataset[u'type'] = u'dataset'
 
-        if ('audit' in dataset['keywords']) or ('evaluation' in dataset['keywords']) :
-            dataset[u'science_data']='false'
+        if (u'audit' in dataset[u'keywords']) or (u'evaluation' in dataset[u'keywords']) or (u"government_and_politics" in dataset[u'subject']) or  u"information_and_communication" in dataset[u"subject"]:
+            dataset[u'science_admin']='False'
         else :
-            dataset[u'science_data']='true'
+            dataset[u'science_admin']='True'
 
-
-        url=dataset[u'url']
-        url_start=url[0:4]
-        if url_start="http" and url[5]!='s' :
-            url=url_start+"s"+url[5:]
-        dataset[u'url']=url
 
 
         #dataset[u'diids_no']=u'no'
