@@ -1,8 +1,38 @@
-## Government of Canada Open Data Portal Harvester
+## Outil de moissonage par API CKAN( english will follow)
+
+Ce répertoire permet d'importer les jeux de données du portail de données ouvertes du gouvernement du Canada (https://open.canada.ca/en/open-data)
+
+Ce script fut concu pour importer les jeux de données dans une version compatible de CKAN tel que défini par l'extension de CKAN de l'Agence spatiale canadienne. [ckanext-csa](https://github.com/asc-csa/ckanext-asc-csa).
+
+Ce script télécharge une copie des métadonnées des jeux de données d'une installation de CKAN donnée, et permettant de les soumettre par la suite à une autre installation de CKAN.
+
+
+
+
+### Démarrage rapide
+
+#### 1.Installer les prérequis avec pip
+Installez les prérequis contenus dans requirements.txt à l'aide de la commande pip suivante :
+```
+pip install -r requirements.txt
+```
+
+#### 2. Set the configuration
+Dans app.py , remplacez {your_api_key} avec une clé API valide de l'installation CKAN qui recevra les jeux de données. Cette clés est unique à chaque utilisateur de CKAN
+
+Dans app.py,vous devrez fournir l'identifiant (ou le nom) de l'organisation qui chaperonnera ces jeux de données. 
+
+#### 3. Execute the script
+Il suffit alors d'exécuter le script app.py à l'aide de la commande ci-dessous. Assurez-vous que les deux serveurs CKAN (receveur et demandeur ) sont tous les deux opérationnel. Dépendant de la capacité des serveurs CKAN, ce script peut prendre quelques minutes à quelques heures.
+```
+python app.py
+```
+
+## Government of Canada Open Data Portal Harvester( le francais précède)
 
 This repository harvests CSA metadata for datasets from [Government of Canada Open Data Portal](https://open.canada.ca/en/open-data)
 
-Running this script requires that you have extended the scheming of CKAN with the custom scheming implemented in [ckanext-csa](https://gccode.ssc-spc.gc.ca/csa-data-centre-of-expertise/ckanext-csa).
+Running this script requires that you have extended the scheming of CKAN with the custom scheming implemented in [ckanext-csa](https://github.com/asc-csa/ckanext-asc-csa).
 
 Harvesting in this case means that it takes the data from the GC website and exports that locally where the script is run from, then pushes those datasets to the CKAN instance.
 
