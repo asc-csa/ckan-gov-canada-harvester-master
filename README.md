@@ -17,12 +17,12 @@ Installez les prérequis contenus dans requirements.txt à l'aide de la commande
 pip install -r requirements.txt
 ```
 
-#### 2. Set the configuration
+#### 2. Configurer le script
 Dans app.py , remplacez {your_api_key} avec une clé API valide de l'installation CKAN qui recevra les jeux de données. Cette clés est unique à chaque utilisateur de CKAN
 
 Dans app.py,vous devrez fournir l'identifiant (ou le nom) de l'organisation qui chaperonnera ces jeux de données. 
 
-#### 3. Execute the script
+#### 3. Exécution du script
 Il suffit alors d'exécuter le script app.py à l'aide de la commande ci-dessous. Assurez-vous que les deux serveurs CKAN (receveur et demandeur ) sont tous les deux opérationnel. Dépendant de la capacité des serveurs CKAN, ce script peut prendre quelques minutes à quelques heures.
 ```
 python app.py
