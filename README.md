@@ -43,7 +43,7 @@ Ces erreurs signifient que les présélections doivent être modifiées (une lis
 Le portail du Canada semble assez instable pour le moment.
 
 ##### Comportement attendu
-Si tout a été importé correctement dans CKAN, il ne devrait pas y avoir d'erreurs lors de l'examen des journaux/alertes qui sont imprimés à partir du terminal dans lequel CKAN a été lancé.
+Si tout a été importé correctement dans CKAN, il ne devrait pas y avoir d'erreurs lors de l'examen des logs/alertes qui sont imprimés à partir du terminal dans lequel CKAN a été lancé.
 
 ## Government of Canada Open Data Portal Harvester
 
