@@ -25,6 +25,8 @@ Dans app.py , remplacez {your_api_key} avec une clé API valide de l'installatio
 Dans app.py,vous devrez fournir l'identifiant (ou le nom) de l'organisation qui chaperonnera ces jeux de données. 
 
 #### 3. Exécution du script
+Tout d'abord, il faut s'assurer qu'il y ait un datapusher qui tourne en parallèle avant de démarrer l'outil de moissonage. [Plus d'information sur le datapusher](https://github.com/ckan/datapusher).
+
 Il suffit alors d'exécuter le script app.py à l'aide de la commande ci-dessous. Assurez-vous que les deux serveurs CKAN (receveur et demandeur ) sont tous les deux opérationnel. Dépendant de la capacité des serveurs CKAN, ce script peut prendre quelques minutes à quelques heures.
 ```
 python app.py
@@ -75,6 +77,8 @@ In app.py replace {your_api_key} with your API key found on your CKAN user profi
 In app.py, you will need to provide the id for your organization. This id can be found by creating an organization in ckan (see ckanext-csa readme) and once on the organization page, clicking the json link and finding the entry next to owner_org. You will then be able to upload dataset under that organisation id
 
 #### 3. Execute the script
+First of all, make sure that there is a datapusher running in parallel before starting the harvesting tool. [More information about the datapusher](https://github.com/ckan/datapusher).
+
 Run the script with the command below. Make sure the CKAN server is running when you run this script. The script will take some time to execute all the API requests.
 ```
 python app.py
