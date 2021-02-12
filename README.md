@@ -1,5 +1,4 @@
-
-
+![harvester banner](harvester_banner.jpg)
 
 - [Français](#outil-de-moissonage-par-api-ckan)
 - [English](#government-of-canada-open-data-portal-harvester)
