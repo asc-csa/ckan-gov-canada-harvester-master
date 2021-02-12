@@ -1,3 +1,6 @@
+
+
+
 - [Français](#outil-de-moissonage-par-api-ckan)
 - [English](#government-of-canada-open-data-portal-harvester)
 
@@ -8,9 +11,6 @@ Ce répertoire permet d'importer les jeux de données du portail de données ouv
 Ce script fut concu pour importer les jeux de données dans une version compatible de CKAN tel que défini par l'extension de CKAN de l'Agence spatiale canadienne. [ckanext-csa](https://github.com/asc-csa/ckanext-asc-csa).
 
 Ce script télécharge une copie des métadonnées des jeux de données d'une installation de CKAN donnée, et permettant de les soumettre par la suite à une autre installation de CKAN.
-
-
-
 
 ### Démarrage rapide
 
@@ -30,6 +30,21 @@ Il suffit alors d'exécuter le script app.py à l'aide de la commande ci-dessous
 ```
 python app.py
 ```
+
+#### 4. Comportements attendus et erreurs courantes
+##### Erreurs courantes
+- Le serveur ne fonctionne pas en même temps que le script
+- Il pourrait également y avoir des ensembles de données déjà dans CKAN qui partagent le nom
+- Erreurs de validation qui devraient apparaître sur la console du serveur CKAN
+
+Ces erreurs signifient que les présélections doivent être modifiées (une liste du fichier contenant toutes les présélections doit être disponible dans le fichier development.ini de ckan sous ckan.presets) ou que la manière dont les données ou le nettoyage doivent être modifiés
+
+- Si le script ne parvient pas à être extrait du site web du gouvernement canadien, il se peut que l'API/URL ait changé ou que le service soit hors service.
+
+Le portail du Canada semble assez instable pour le moment.
+
+##### Comportement attendu
+Si tout a été importé correctement dans CKAN, il ne devrait pas y avoir d'erreurs lors de l'examen des journaux/alertes qui sont imprimés à partir du terminal dans lequel CKAN a été lancé.
 
 ## Government of Canada Open Data Portal Harvester
 
