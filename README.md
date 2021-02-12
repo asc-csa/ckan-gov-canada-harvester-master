@@ -1,4 +1,7 @@
-## Outil de moissonage par API CKAN( english will follow)
+- [Français](#outil-de-moissonage-par-api-ckan)
+- [English](#government-of-canada-open-data-portal-harvester)
+
+## Outil de moissonage par API CKAN
 
 Ce répertoire permet d'importer les jeux de données du portail de données ouvertes du gouvernement du Canada (https://open.canada.ca/en/open-data)
 
@@ -28,7 +31,7 @@ Il suffit alors d'exécuter le script app.py à l'aide de la commande ci-dessous
 python app.py
 ```
 
-## Government of Canada Open Data Portal Harvester( le francais précède)
+## Government of Canada Open Data Portal Harvester
 
 This repository harvests CSA metadata for datasets from [Government of Canada Open Data Portal](https://open.canada.ca/en/open-data)
 
