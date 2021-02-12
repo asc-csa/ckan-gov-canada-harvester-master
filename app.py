@@ -2,8 +2,8 @@ import gov_canada_data_clean
 import gov_canada_harvester
 import gov_canada_request
 
-
-API_KEY = '52638bb3-cf19-4372-a64d-211e79e71484'
+# Enter your API_KEY here
+API_KEY = ''
 CKAN_URL = 'http://0.0.0.0:5000/'
 org_id ='csa-asc'
 #gov_canada_harvester.get_data()
