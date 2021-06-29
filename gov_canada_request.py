@@ -3,12 +3,16 @@ import numpy as np
 import pandas as pd
 import json
 import pprint
-import urllib2
-import urllib
 import re
 import logging
 import simplejson
 import time
+try:    #try to import the python 3 urllib:
+    from urllib.parse import quote
+    from urllib.request import urlopen, Request
+except ImportError:   #revert to Python 2 libraries
+    from urllib2 import urlopen, Request
+    from urllib import quote
 
 def send_request(API_KEY, CKAN_URL):
     with open('gov_canada_datasets_clean.json', 'r') as f:
@@ -16,10 +20,10 @@ def send_request(API_KEY, CKAN_URL):
 
     for dataset in cleaned_datasets:
         try :
-            data_string = urllib.quote(json.dumps(dataset))
+            data_string = quote(json.dumps(dataset))
 
             # We'll use the package_create function to create a new dataset.
-            request = urllib2.Request(CKAN_URL+'api/action/package_create')
+            request = Request(CKAN_URL+'api/action/package_create')
 
             # Creating a dataset requires an authorization header.
             # Replace *** with your API key, from your user account on the CKAN site
@@ -27,7 +31,7 @@ def send_request(API_KEY, CKAN_URL):
             request.add_header('Authorization', API_KEY)
 
             # Make the HTTP request.
-            response = urllib2.urlopen(request, data_string)
+            response = urlopen(request, data_string)
             #response.encoding = "utf-8"
             assert response.code == 200
 
