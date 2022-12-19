@@ -5,7 +5,7 @@ import json
 import pprint
 import re
 import logging
-import simplejson
+#import simplejson
 import time
 try:    #try to import the python 3 urllib:
     from urllib.parse import quote

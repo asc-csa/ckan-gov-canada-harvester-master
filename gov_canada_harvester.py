@@ -20,7 +20,7 @@ def get_data():
 
     datasets = []
 
-    print "This will take a few minutes...."
+    print ("This will take a few minutes....")
 
     # Request datasets by their id to get their full metadata
     l=len(dataset_ids)
@@ -36,7 +36,7 @@ def get_data():
                 gov_canada_api_dataset = json.loads(response.text)
                 assert (gov_canada_api_dataset['success'] == True)
                 datasets.append(gov_canada_api_dataset)
-                print i,'/',l
+                print (i,'/',l)
                 time.sleep(1)
 
             except :
@@ -49,4 +49,4 @@ def get_data():
     with open('gov_canada_datasets_raw.json', 'w') as f:
         json.dump(datasets, f)
 
-    print "Success!!"
+    print ("Success!!")
