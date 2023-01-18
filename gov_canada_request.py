@@ -20,17 +20,24 @@ def send_request(API_KEY, CKAN_URL):
 
     for dataset in cleaned_datasets:
         try :
-            data_string = quote(json.dumps(dataset))
+            print ('Loading a dataset...')
+            data_string = quote(json.dumps(dataset)).encode("utf-8")
+            print ('Dataset loaded')
 
             # We'll use the package_create function to create a new dataset.
             request = Request(CKAN_URL+'api/action/package_create')
+            print ('Dataset created')
 
             # Creating a dataset requires an authorization header.
             # Replace *** with your API key, from your user account on the CKAN site
             # that you're creating the dataset on.
             request.add_header('Authorization', API_KEY)
+            print ('Dataset authorized')
 
             # Make the HTTP request.
+            print ('Making the HTTP request...')
+            #print (data_string)
+            #print (request)
             response = urlopen(request, data_string)
             #response.encoding = "utf-8"
             assert response.code == 200
@@ -49,5 +56,8 @@ def send_request(API_KEY, CKAN_URL):
             # package_create returns the created package as its result.
             created_package = response_dict[u'result']
             pprint.pprint(created_package)
-        except :
+        except Exception as ex:
             print('An error occured and this dataset will be skipped')
+            print(str(ex))
+            #print(ex.message)
+            print('')
