@@ -45,7 +45,7 @@ Ces erreurs signifient que les présélections doivent être modifiées (une lis
 Le portail du Canada semble assez instable pour le moment.
 
 ##### Comportement attendu
-Si tout a été importé correctement dans CKAN, il ne devrait pas y avoir d'erreurs lors de l'examen des logs/alertes qui sont imprimés à partir du terminal dans lequel CKAN a été lancé. Lors de l’ajout, le système ignore les jeux de données existants and lance une exception indiquant qu’il est un conflit. Aucun changement n’est appliqué aux jeux de données existants.
+Si tout a été importé correctement dans CKAN, il ne devrait pas y avoir d'erreurs lors de l'examen des logs/alertes qui sont imprimés à partir du terminal dans lequel CKAN a été lancé. Lors de l’ajout, le système ignore les jeux de données existants et lance une exception indiquant qu’il est un conflit. Aucun changement n’est appliqué aux jeux de données existants.
 
 ## Government of Canada Open Data Portal Harvester
 
