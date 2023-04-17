@@ -29,7 +29,7 @@ Tout d'abord, il faut s'assurer qu'il y ait un datapusher qui tourne en parallè
 
 Il suffit alors d'exécuter le script app.py à l'aide de la commande ci-dessous. Assurez-vous que les deux serveurs CKAN (receveur et demandeur ) sont tous les deux opérationnel. Dépendant de la capacité des serveurs CKAN, ce script peut prendre quelques minutes à quelques heures.
 ```
-python app.py
+python3 app.py
 ```
 
 #### 4. Comportements attendus et erreurs courantes
@@ -81,7 +81,7 @@ First of all, make sure that there is a datapusher running in parallel before st
 
 Run the script with the command below. Make sure the CKAN server is running when you run this script. The script will take some time to execute all the API requests.
 ```
-python app.py
+python3 app.py
 ```
 
 #### 4. Expected Behavior and Common Mistakes
