@@ -20,6 +20,7 @@ def get_data():
 
     datasets = []
 
+    print ("Getting data")
     print ("This will take a few minutes....")
 
     # Request datasets by their id to get their full metadata
@@ -49,4 +50,4 @@ def get_data():
     with open('gov_canada_datasets_raw.json', 'w') as f:
         json.dump(datasets, f)
 
-    print ("Success!!")
+    print ("Success!!\n")

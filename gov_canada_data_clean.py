@@ -2,30 +2,24 @@
 # coding: utf-8
 
 # ## Data Cleaning datasets from gov canada
-
-
-
-
 import json
 import pprint
 import re
 import logging
 
 def clean_data(org_id):
+
     # Comments regarding this function can be found in the jupyter notebook
+    print ("Cleaning data...")
     with open('gov_canada_datasets_raw.json', 'r') as f:
         datasets = json.load(f)
 
-
     datasets[0][u'result']
-
-
     delete_keys = [u'creator_user_id', u'groups', u'id', u'revision_id',
                 u'isopen', u'license_title', u'license_url', u'metadata_contact', u'metadata_created',
                 u'metadata_modified',u'owner_org', u'num_resources', u'num_tags', u'organization']
 
     resource_delete_keys = [u'datastore_active', u'id', u'package_id', u'position', u'url_type']
-
     cleaned_datasets = []
 
     for dataset in datasets:
@@ -47,12 +41,10 @@ def clean_data(org_id):
         else :
             dataset[u'science_admin']='True'
 
-
-
         #dataset[u'diids_no']=u'no'
         cleaned_datasets.append(dataset)
 
-
-
     with open('gov_canada_datasets_clean.json', 'w') as f:
         json.dump(cleaned_datasets, f)
+
+    print ("Data cleaned\n")
