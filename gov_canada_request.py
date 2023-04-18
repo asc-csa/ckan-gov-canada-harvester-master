@@ -44,7 +44,7 @@ def send_request(API_KEY, CKAN_URL):
 
             # Make the HTTP request.
             print ('Making the HTTP request...')
-            print (data_string)
+            #print (data_string)
             #print (request)
             response = urlopen(request, data_string)
             #response.encoding = "utf-8"
@@ -71,7 +71,7 @@ def send_request(API_KEY, CKAN_URL):
             errorMsg = str(ex)
             if 'CONFLICT' in errorMsg:
                 nbExistingDatasets = nbExistingDatasets + 1
-                print('This dataset will be skipped because it is already there')
+                print('This dataset will be skipped because it is already in the database')
             else:
                 print('An error occured and this dataset will be skipped')
                 print(errorMsg)
