@@ -15,9 +15,17 @@ except ImportError:   #revert to Python 2 libraries
     from urllib import quote
 
 def send_request(API_KEY, CKAN_URL):
+
     with open('gov_canada_datasets_clean.json', 'r') as f:
         cleaned_datasets = json.load(f)
-
+    
+    # Display the number of datasets
+    print ('Adding new datasets to the data portal...')
+    print ('Note: The existing datasets will NOT be added.')
+    print ('Total number of datasets found (new & existing): ' + str(len(cleaned_datasets)) + '\n')
+    nbNewDatasets = 0
+    nbExistingDatasets = 0
+    
     for dataset in cleaned_datasets:
         try :
             print ('Loading a dataset...')
@@ -36,10 +44,11 @@ def send_request(API_KEY, CKAN_URL):
 
             # Make the HTTP request.
             print ('Making the HTTP request...')
-            #print (data_string)
+            print (data_string)
             #print (request)
             response = urlopen(request, data_string)
             #response.encoding = "utf-8"
+            print ('HTTP request... done')
             assert response.code == 200
 
             # Use the json module to load CKAN's response into a dictionary.
@@ -54,10 +63,23 @@ def send_request(API_KEY, CKAN_URL):
                 logging.error('Dataset failed to upload')
 
             # package_create returns the created package as its result.
+            print ('New dataset added to the data portal')
+            nbNewDatasets = nbNewDatasets + 1
             created_package = response_dict[u'result']
             pprint.pprint(created_package)
         except Exception as ex:
-            print('An error occured and this dataset will be skipped')
-            print(str(ex))
-            #print(ex.message)
+            errorMsg = str(ex)
+            if 'CONFLICT' in errorMsg:
+                nbExistingDatasets = nbExistingDatasets + 1
+                print('This dataset will be skipped because it is already there')
+            else:
+                print('An error occured and this dataset will be skipped')
+                print(errorMsg)
+                #print(ex.message)
             print('')
+
+    # Summary
+    print('\nSUMMARY')
+    print ('Number of new datasets: ' + str(nbNewDatasets))
+    print ('Number of existing datasets: ' + str(nbExistingDatasets))
+    print('')
