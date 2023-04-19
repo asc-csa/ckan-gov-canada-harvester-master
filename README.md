@@ -20,9 +20,25 @@ pip install -r requirements.txt
 ```
 
 #### 2. Configurer le script
+Dans app.py retirez le commentaire de cette ligne :
+```
+#gov_canada_request.send_request(API_KEY, CKAN_URL)
+```
+
+Assignez la bonne adresse :
+
+e.g. ```CKAN_URL = 'https://datatest.asc-csa.gc.ca/'```
+
+Créez un compte d'administration CKAN et générez la clé API. Au besoin, vous trouverez plus d'informations sur [cette page](https://docs.ckan.org/en/2.9/maintaining/getting-started.html#create-admin-user).
+```
+. /usr/lib/ckan/default/bin/activate
+ckan -c /etc/ckan/default/ckan.ini sysadmin add seanh email=seanh@localhost name=seanh
+ckan -c /etc/ckan/default/ckan.ini sysadmin add seanh
+```
+
 Dans app.py , remplacez {your_api_key} avec une clé API valide de l'installation CKAN qui recevra les jeux de données. Cette clés est unique à chaque utilisateur de CKAN
 
-Dans app.py,vous devrez fournir l'identifiant (ou le nom) de l'organisation qui chaperonnera ces jeux de données. 
+Dans app.py,vous devrez fournir l'identifiant (ou le nom) de l'organisation qui chaperonnera ces jeux de données (ex: 'csa-asc'). 
 
 #### 3. Exécution du script
 Tout d'abord, il faut s'assurer qu'il y ait un datapusher qui tourne en parallèle avant de démarrer l'outil de moissonage. [Plus d'information sur le datapusher](https://github.com/ckan/datapusher).
@@ -72,9 +88,25 @@ pip install -r requirements.txt
 ```
 
 #### 2. Set the configuration
+In app.py uncomment this line before execution:
+```
+#gov_canada_request.send_request(API_KEY, CKAN_URL)
+```
+
+Update this line with the appropriate URL:
+
+e.g. ```CKAN_URL = 'https://datatest.asc-csa.gc.ca/'```
+
+Create a CKAN admin account and generate the API key. You can find more instruction on [this page](https://docs.ckan.org/en/2.9/maintaining/getting-started.html#create-admin-user).
+```
+. /usr/lib/ckan/default/bin/activate
+ckan -c /etc/ckan/default/ckan.ini sysadmin add seanh email=seanh@localhost name=seanh
+ckan -c /etc/ckan/default/ckan.ini sysadmin add seanh
+```
+
 In app.py replace {your_api_key} with your API key found on your CKAN user profile and replace {ckan_url} with the url of your ckan instance. The current url/IP in the file should work with the default install.
 
-In app.py, you will need to provide the id for your organization. This id can be found by creating an organization in ckan (see ckanext-csa readme) and once on the organization page, clicking the json link and finding the entry next to owner_org. You will then be able to upload dataset under that organisation id
+In app.py, you will need to provide the id for your organization (e.g 'csa-asc'). This id can be found by creating an organization in ckan (see ckanext-csa readme) and once on the organization page, clicking the json link and finding the entry next to owner_org. You will then be able to upload dataset under that organisation id.
 
 #### 3. Execute the script
 First of all, make sure that there is a datapusher running in parallel before starting the harvesting tool. [More information about the datapusher](https://github.com/ckan/datapusher).
