@@ -27,7 +27,7 @@ Dans app.py retirez le commentaire de cette ligne :
 
 Assignez la bonne adresse :
 
-e.g. ```CKAN_URL = 'https://datatest.asc-csa.gc.ca/'```
+e.g. ```CKAN_URL = 'http://localhost:5000/'``` ou ```CKAN_URL = 'https://datatest.asc-csa.gc.ca/'```
 
 Créez un compte d'administration CKAN et générez la clé API. Au besoin, vous trouverez plus d'informations sur [cette page](https://docs.ckan.org/en/2.9/maintaining/getting-started.html#create-admin-user).
 ```
@@ -95,7 +95,7 @@ In app.py uncomment this line before execution:
 
 Update this line with the appropriate URL:
 
-e.g. ```CKAN_URL = 'https://datatest.asc-csa.gc.ca/'```
+e.g. ```CKAN_URL = 'http://localhost:5000/'``` or ```CKAN_URL = 'https://datatest.asc-csa.gc.ca/'```
 
 Create a CKAN admin account and generate the API key. You can find more instruction on [this page](https://docs.ckan.org/en/2.9/maintaining/getting-started.html#create-admin-user).
 ```
